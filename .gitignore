@@ -2,3 +2,5 @@
 node_modules
 # yarn logs
 yarn-error.log
+# test files
+mytest.ts
