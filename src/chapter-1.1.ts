@@ -1,4 +1,4 @@
-import { tsAnyKeyword } from "@babel/types";
+import { tsAnyKeyword, arrayExpression } from "@babel/types";
 
 // import { numberLiteralTypeAnnotation } from "@babel/types";
 
@@ -93,14 +93,11 @@ import { tsAnyKeyword } from "@babel/types";
 // equal if all three are equal, and not equal otherwise.
 
 // function takeArguments(a1: number = parseInt(process.argv[2]), b1: number = parseInt(process.argv[3]), c1: number = parseInt(process.argv[4])) {
-//     console.log(process.argv[0]);
-//     console.log(process.argv[1]);
-//     console.log(a1, b1, c1);  
 //     if (a1 === b1 && b1 === c1) {
-//         return console.log("equal");        
-//     } else return console.log("not equal");
+//         return "equal";        
+//     } return "not equal";
 // };
-//  takeArguments();
+//  console.log(takeArguments());
 
 // 1.1.4 What (if anything) is wrong with each of the following statements?
 
@@ -113,57 +110,64 @@ import { tsAnyKeyword } from "@babel/types";
 
 // 1.1.5 Write a code fragment that prints true if the double variables x and y are both
 // strictly between 0 and 1 and false otherwise.
-// this is the case when strictly between is inclusive
+// this is the case when strictly between is exclusive
 // function betweenZeroAndOne(x:number, y: number) {
 //     if (x >= 0 && x <= 1 && y >= 0 && y <= 1)
-//      return console.log("true");
-//     else return console.log("false");
+//      return true;
+//     else return false;
 // }
 // let r: number = 1;
 // let s: number = 0.1;
 // console.log(r, s, betweenZeroAndOne(r, s));
 
 
-// 1.1.6 What does the following program print?
-//NO IDEA !!!!!!
-    // int f = 0;
-    // int g = 1;
-    // for (int i = 0; i <= 15; i++)  {
-    //     StdOut.println(f);
-    //     f = f + g;
-    //     g = f - g;
-    // }
+// // 1.1.6 What does the following program print?
+//     let f: number = 0;
+//     let g: number = 1;
+//     for (let i:number = 0; i <= 15; i++)  {
+//         console.log(f);
+//         f = f + g;
+//         g = f - g;
+//     }
 
 // 1.1.7 Give the value printed by each of the following code fragments:
-// a.  double t = 9.0;
-//     while (Math.abs(t - 9.0/t) > .001)
-//     t = (9.0/t + t) / 2.0;
-//     StdOut.printf("%.5f\n", t);
-
 // let t = 9
 // while (Math.abs(t - 9/t) > 0.001)
 //     t = (9/t + t) / 2;
 // console.log("%.5f/n", t);
 
-// b.  int sum = 0;
-//     for (int i = 1; i < 1000; i++)
-//     for (int j = 0; j < i; j++)
-//     sum++;
-//     StdOut.println(sum);
+// let sum: number = 0;
+// for (let i: number = 1; i < 1000; i++) 
+//     for (let j: number = 0; j < i; j++) 
+//         sum++;
+// console.log(sum);
 
+// //here is a difference, when we use the brackets we get the result.
+// sum = 0;
+// for (let i: number = 1; i < 1000; i++) {
+//     for (let j: number = 0; j < i; j++) {
+//     }    sum++;
+// }
+// console.log(sum);
+    
 
-// c.  int sum = 0;
-//     for (int i = 1; i < 1000; i *= 2)
-//     for (int j = 0; j < N; j++)
-//     sum++;
-//     StdOut.println(sum);
+//var N is not define anywhere
+    // let sum: number = 0;
+    // for (let i: number = 1; i < 1000; i *= 2)
+    // for (let j: number = 0; j < N; j++)
+    // sum++;
+    // console.log(sum);
+    
 
 // 1.1.8 What do each of the following print?
-// a. System.out.println('b');
-// b. System.out.println('b' + 'c');
-// c. System.out.println((char) ('a' + 4));
-// Explain each outcome.
+// // first two examples concatenate strings
+//  console.log('b');
+//  console.log('b' + 'c');
+// //last example throws a compile error in syntax, missing operation.
+// if we ignored it, it throws a run time error, multiplication operation is invalid between string types
+// console.log((string:string) ('a' + 4));
 
+//NO IDEA !!!!******
 // 1.1.9 Write a code fragment that puts the binary representation of a positive integer N
 // into a String s .
 // Solution: Java has a built-in method Integer.toBinaryString(N) for this job, but
@@ -177,33 +181,114 @@ import { tsAnyKeyword } from "@babel/types";
 //     int[] a;
 //     for (int i = 0; i < 10; i++)
 //     a[i] = i * i;
+
+// // The following code, takes care of the error.
+// let a: number[] = [];
+// for (let i:number = 0; i < 10; i++)
+//     a[i] = i * i;
+// console.log(a);
+
 // Solution: It does not allocate memory for a[] with new . This code results in a
 // variable a might not have been initialized compile-time error.
 
-// 1.1.11 Write a code fragment that prints the contents of a two-dimensional boolean
-// array, using * to represent true and a space to represent false . Include row and column
-// numbers.
+
+// // 1.1.11 Write a code fragment that prints the contents of a two-dimensional boolean
+// // array, using * to represent true and a space to represent false . Include row and column
+// // numbers.
+//
+// //the following code is from mozilla dev. as an example of a Multidimensional array
+// let a = new Array(4);
+// for (let i = 0; i < 4; i++) {
+//   a[i] = new Array(4);
+//   for (let j = 0; j < 4; j++) {
+//     a[i][j] = '[' + j + ', ' + i + ']';
+//   }
+// }
+// console.log(a);
+
+// // //Answer
+// let a: boolean[][] = [[true, false], [false, true], [false, false]];
+// for (let i: number = 0; i < 3; i++) {
+//     //console.log("first", a[i]);
+    //for (let j: number = 0; j < 2; j++) {
+        //// console.log("second", a[i][j]);
+        // if (a[i][j] === true) {
+        //     console.log(i, j,"*");
+        // } else console.log(i, j, "k");
+    // }
+// }
+
 
 // 1.1.12 What does the following code fragment print?
-//     int[] a = new int[10];
-//     for (int i = 0; i < 10; i++)
-//         a[i] = 9 - i;
-//     for (int i = 0; i < 10; i++)
-//         a[i] = a[a[i]];
-//     for (int i = 0; i < 10; i++)
-//         System.out.println(i);
+// //Syntax error
+    //  let a: number[] = new int[10];
+    // for (let i: number = 0; i < 10; i++)
+    //     a[i] = 9 - i;
+    // for (let i: number = 0; i < 10; i++)
+    //     a[i] = a[a[i]];
+    // for (let i: number = 0; i < 10; i++)
+    //     console.log(i);
 
 // 1.1.13 Write a code fragment to print the transposition (rows and columns changed)
 // of a two-dimensional array with M rows and N columns.
+// What is the difference between a two-dimensional array, and a three dimensional array; regarding rows and columns?
+// let M:number = 4;
+// let N:number = 4;
+// let b = new Array(M);
+//     for (let i:number = 0; i < M; i++) {
+//         b[i] = new Array(N);
+//         for (let j:number = 0; j < N; j++) {
+//             b[i][j] = '[' + j + ', ' + i +']';
+//         }
+//     }
+// console.log(b);
+
 
 // 1.1.14 Write a static method lg() that takes an int value N as argument and returns
 // the largest int not larger than the base-2 logarithm of N . Do not use Math .
+
+
+// function lg(N:number) {
+//     if (N === 1) return 1;
+//     if (N < 1) return "Math Undefined"; 
+//     let result: number = 0;
+//     for (let i:number = 2; i <= N; i*=2) {
+//         result++
+//     }
+//     return result;
+// }
+// console.log(lg(8));
+// console.log(lg(10));
+// console.log(lg(16));
+// console.log(lg(4));
+// console.log(lg(1));
+// console.log(lg(-6));
+
 
 // 1.1.15 Write a static method histogram() that takes an array a[] of int values and
 // an integer M as arguments and returns an array of length M whose i th entry is the num-
 // ber of times the integer i appeared in the argument array. If the values in a[] are all
 // between 0 and M–1 , the sum of the values in the returned array should be equal to
 // a.length .
+
+
+// function histogram(a:number[], M:number) {
+//     let result: number[] = [];
+//     for (let i = 0; i < M; i++){
+//         let count: number = 0;
+//         // for (let j = 0; j < a.length; j++){
+//         //     if (i === a[j]) {
+//         //         count++
+//         //     }
+//         // }
+//         a.forEach(e => i === e && count++)
+//         result.push(count);
+//     }
+//     return result; 
+// }
+
+// console.log(histogram([0, 1, 2, 3, 3, 3, 2, 0, 81, 0], 3));
+
 
 // 1.1.16 Give the value of exR1(6) :
     
@@ -213,6 +298,12 @@ import { tsAnyKeyword } from "@babel/types";
 //     return exR1(n-3) + n + exR1(n-2) + n;
 // }
 
+// function exR1(n:number): string {
+//     if (n <= 0) return "";
+//     return exR1(n-3) + n + exR1(n-2) + n;
+// } 
+// console.log(exR1(6), typeof exR1(6));
+
 // 1.1.17 Criticize the following recursive function:
 
 //     public static String exR2(int n)
@@ -221,6 +312,15 @@ import { tsAnyKeyword } from "@babel/types";
 //     if (n <= 0) return "";
 //     return s;
 //     }
+
+// // WHAT'S THE DIFFERENCE???
+// function exR2(n:number):string {
+//     let s:string = exR2(n-3) + n + exR2(n-2) + n;
+//     if (n <= 0) return "";
+//     return s;
+//     //return exR2(n-3) + n + exR2(n-2) + n;
+// }
+// console.log(exR2(3));
 // Answer : The base case will never be reached. A call to exR2(3) will result in calls to
 // exR2(0) , exR2(-3) , exR3(-6) , and so forth until a StackOverflowError occurs.
 
@@ -233,6 +333,16 @@ import { tsAnyKeyword } from "@babel/types";
 //     if (b % 2 == 0) return mystery(a+a, b/2);
 //         return mystery(a+a, b/2) + a;
 //     }
+
+// function mystery(a:number, b:number): number {
+//     if ( b === 0) return 1;
+//     else if (b % 2 === 0) return mystery(a*a, b/2);
+//     else return mystery(a*a, b/2) + a;
+// }
+// console.log(mystery(2, 0));
+//console.log(mystery(3, 11));
+
+
 // What are the values of mystery(2, 25) and mystery(3, 11) ? Given positive integers
 // a and b , describe what value mystery(a, b) computes. Answer the same question, but
 // replace + with * and replace return 0 with return 1 .
