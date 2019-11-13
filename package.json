@@ -7,7 +7,7 @@
        "test": "jest",
        "test:watch": "jest --watch"
     },
-    "author": "",
+    "author": "Alain Gonzalez <rusgonzalez@gmail.com>",
     "license": "ISC",
     "devDependencies": {
        "@types/jest": "^24.0.18",
