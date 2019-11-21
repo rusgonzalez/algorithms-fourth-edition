@@ -1,4 +1,5 @@
 import Bag from "../Bags/Bag";
+//import bagSize from "../Bags/Bag";
 
 describe("Testing Bags", () => {
   test("size", () => {
@@ -9,6 +10,12 @@ describe("Testing Bags", () => {
       expect(myBag.size()).toEqual(i);
     }
   });
+
+  // test("size vs bagSize", () => {
+  //   const myBag = new Bag<number>();
+  //   expect(myBag.size()).toEqual(bagSize);
+  // });
+
   test("isEmpty", () => {
     const myBag = new Bag<number>();
     expect(myBag.isEmpty()).toBe(true);

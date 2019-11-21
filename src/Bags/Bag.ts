@@ -27,6 +27,10 @@ class Bag<T> {
   }
   size(): number {
     return this.bagSize;
+    // for (let i = 0; this.first !== null; i++) {
+    //     this.first = this.first.next;
+    //     return i;
+    // }
   }
 
   *[Symbol.iterator]() {

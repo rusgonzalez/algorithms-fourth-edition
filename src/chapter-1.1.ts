@@ -8,7 +8,6 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // // let max: number = a[0];
 // // for (let i: number = 1; i < a.length; i++);
 // //     if (a[i] > max) max = a[i];
- 
 
 // //absolute value of a number value
 // function absoluteValue(x: number): number {
@@ -34,7 +33,6 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // //         t = (c/t + t) / 2;
 // //     } return t;
 // // }
-
 
 // // hypotenuse of a right triangle
 // function hypotenuse(a:number, b:number) {
@@ -63,12 +61,6 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // }
 // function rank(key: number, )
 
-
-
-
-
-
-
 // Exercises
 
 //1.1.1 Give the value of each of the following expressions:
@@ -94,15 +86,15 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 
 // function takeArguments(a1: number = parseInt(process.argv[2]), b1: number = parseInt(process.argv[3]), c1: number = parseInt(process.argv[4])) {
 //     if (a1 === b1 && b1 === c1) {
-//         return "equal";        
+//         return "equal";
 //     } return "not equal";
 // };
 //  console.log(takeArguments());
 
 // 1.1.4 What (if anything) is wrong with each of the following statements?
 
-//a.then term is not supported in JS___ b. missing the () for the if statement_____ c. right way_____ 
-//d. Semicolon missing before the else, or else statement needs to be moved downwards. 
+//a.then term is not supported in JS___ b. missing the () for the if statement_____ c. right way_____
+//d. Semicolon missing before the else, or else statement needs to be moved downwards.
 // a.if (a > b) then c = 0;
 // b.if a > b { c = 0; }
 // c.if (a > b) c = 0;
@@ -120,7 +112,6 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // let s: number = 0.1;
 // console.log(r, s, betweenZeroAndOne(r, s));
 
-
 // // 1.1.6 What does the following program print?
 //     let f: number = 0;
 //     let g: number = 1;
@@ -137,8 +128,8 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // console.log("%.5f/n", t);
 
 // let sum: number = 0;
-// for (let i: number = 1; i < 1000; i++) 
-//     for (let j: number = 0; j < i; j++) 
+// for (let i: number = 1; i < 1000; i++)
+//     for (let j: number = 0; j < i; j++)
 //         sum++;
 // console.log(sum);
 
@@ -149,15 +140,13 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 //     }    sum++;
 // }
 // console.log(sum);
-    
 
 //var N is not define anywhere
-    // let sum: number = 0;
-    // for (let i: number = 1; i < 1000; i *= 2)
-    // for (let j: number = 0; j < N; j++)
-    // sum++;
-    // console.log(sum);
-    
+// let sum: number = 0;
+// for (let i: number = 1; i < 1000; i *= 2)
+// for (let j: number = 0; j < N; j++)
+// sum++;
+// console.log(sum);
 
 // 1.1.8 What do each of the following print?
 // // first two examples concatenate strings
@@ -191,7 +180,6 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // Solution: It does not allocate memory for a[] with new . This code results in a
 // variable a might not have been initialized compile-time error.
 
-
 // // 1.1.11 Write a code fragment that prints the contents of a two-dimensional boolean
 // // array, using * to represent true and a space to represent false . Include row and column
 // // numbers.
@@ -210,24 +198,23 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // let a: boolean[][] = [[true, false], [false, true], [false, false]];
 // for (let i: number = 0; i < 3; i++) {
 //     //console.log("first", a[i]);
-    //for (let j: number = 0; j < 2; j++) {
-        //// console.log("second", a[i][j]);
-        // if (a[i][j] === true) {
-        //     console.log(i, j,"*");
-        // } else console.log(i, j, "k");
-    // }
+//for (let j: number = 0; j < 2; j++) {
+//// console.log("second", a[i][j]);
+// if (a[i][j] === true) {
+//     console.log(i, j,"*");
+// } else console.log(i, j, "k");
 // }
-
+// }
 
 // 1.1.12 What does the following code fragment print?
 // //Syntax error
-    //  let a: number[] = new int[10];
-    // for (let i: number = 0; i < 10; i++)
-    //     a[i] = 9 - i;
-    // for (let i: number = 0; i < 10; i++)
-    //     a[i] = a[a[i]];
-    // for (let i: number = 0; i < 10; i++)
-    //     console.log(i);
+//  let a: number[] = new int[10];
+// for (let i: number = 0; i < 10; i++)
+//     a[i] = 9 - i;
+// for (let i: number = 0; i < 10; i++)
+//     a[i] = a[a[i]];
+// for (let i: number = 0; i < 10; i++)
+//     console.log(i);
 
 // 1.1.13 Write a code fragment to print the transposition (rows and columns changed)
 // of a two-dimensional array with M rows and N columns.
@@ -243,14 +230,12 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 //     }
 // console.log(b);
 
-
 // 1.1.14 Write a static method lg() that takes an int value N as argument and returns
 // the largest int not larger than the base-2 logarithm of N . Do not use Math .
 
-
 // function lg(N:number) {
 //     if (N === 1) return 1;
-//     if (N < 1) return "Math Undefined"; 
+//     if (N < 1) return "Math Undefined";
 //     let result: number = 0;
 //     for (let i:number = 2; i <= N; i*=2) {
 //         result++
@@ -264,13 +249,11 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // console.log(lg(1));
 // console.log(lg(-6));
 
-
 // 1.1.15 Write a static method histogram() that takes an array a[] of int values and
 // an integer M as arguments and returns an array of length M whose i th entry is the num-
 // ber of times the integer i appeared in the argument array. If the values in a[] are all
 // between 0 and M–1 , the sum of the values in the returned array should be equal to
 // a.length .
-
 
 // function histogram(a:number[], M:number) {
 //     let result: number[] = [];
@@ -284,14 +267,13 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 //         a.forEach(e => i === e && count++)
 //         result.push(count);
 //     }
-//     return result; 
+//     return result;
 // }
 
 // console.log(histogram([0, 1, 2, 3, 3, 3, 2, 0, 81, 0], 3));
 
-
 // 1.1.16 Give the value of exR1(6) :
-    
+
 // public static String exR1(int n)
 // {
 //     if (n <= 0) return "";
@@ -301,7 +283,7 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // function exR1(n:number): string {
 //     if (n <= 0) return "";
 //     return exR1(n-3) + n + exR1(n-2) + n;
-// } 
+// }
 // console.log(exR1(6), typeof exR1(6));
 
 // 1.1.17 Criticize the following recursive function:
@@ -325,7 +307,7 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // exR2(0) , exR2(-3) , exR3(-6) , and so forth until a StackOverflowError occurs.
 
 // 1.1.18 Consider the following recursive function:
-    
+
 // public static int mystery(int a, int b)
 //     {
 //     if (b == 0)
@@ -341,7 +323,6 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // }
 // console.log(mystery(2, 0));
 //console.log(mystery(3, 11));
-
 
 // What are the values of mystery(2, 25) and mystery(3, 11) ? Given positive integers
 // a and b , describe what value mystery(a, b) computes. Answer the same question, but
@@ -467,7 +448,7 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 //     int SIDES = 6;
 //     double[] dist =  new double[2*SIDES+1];
 //     for (int i = 1; i <= SIDES; i++)
-//         for (int j = 1; j <= SIDES; j++) 
+//         for (int j = 1; j <= SIDES; j++)
 //             dist[i+j] += 1.0;
 
 //     for (int k = 2; k <= 2*SIDES; k++)
@@ -477,7 +458,7 @@ import { tsAnyKeyword, arrayExpression } from "@babel/types";
 // date this calculation simulating N dice throws, keeping track of the frequencies of oc-
 // currence of each value when you compute the sum of two random integers between 1
 // and 6. How large does N have to be before your empirical results match the exact results
-// to three decimal places? 
+// to three decimal places?
 
 // 1.1.36 Empirical shuffle check. Run computational experiments to check that our
 // shuffling code on page 32 works as advertised. Write a program ShuffleTest that takes
